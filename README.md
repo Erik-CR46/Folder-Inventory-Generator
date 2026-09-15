@@ -54,30 +54,47 @@ git clone https://github.com/your-username/folder-inventory-generator.git
 cd folder-inventory-generator
 ```
 
-Install the required dependency:
+Create and activate a virtual environment:
 
-```bash
-pip install pandas openpyxl
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Install the required dependencies:
+
+```powershell
+python -m pip install pandas openpyxl
 ```
 
 ## ▶️ Usage
 
-Configure the directory you want to analyze in the Python script:
+1. Open `folder_inventory.py`.
+2. Edit the `ruta_base` variable near the top of the file with the absolute path of the folder you want to analyze. On Windows, use a raw string (`r"..."`) so that backslashes are interpreted correctly:
 
 ```python
-ruta_base = r"C:\path\to\your\folder"
+ruta_base = r"C:\Users\your-user\Documents\folder-to-analyze"
 ```
 
-Then run:
+For example:
 
-```bash
+```python
+ruta_base = r"C:\Users\erikc\Documents\GitHub"
+```
+
+The folder must exist and the user running the script must have permission to read it.
+
+Run the script from the project directory:
+
+```powershell
+cd C:\path\to\Folder-Inventory-Generator
 python folder_inventory.py
 ```
 
 The script will generate:
 
 ```text
-folder_inventory.xlsx
+inventario_carpetas_rapido.xlsx
 ```
 
 ## ⚠️ Notes
